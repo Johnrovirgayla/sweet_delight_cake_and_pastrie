@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Sweet Delights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="14" width="20" height="10" rx="2" fill="#e91e8c"/>
+          <rect x="7" y="10" width="14" height="6" rx="1" fill="#f06ab0"/>
+          <rect x="11" y="4" width="6" height="8" rx="1" fill="#e91e8c"/>
+          <circle cx="14" cy="4" r="2" fill="#ff6eb4"/>
+        </svg>
+        Sweet Delights
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="reservations.html">Reservations</a></li>
+      </ul>
+      <a href="cart.html" class="cart-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="page-header">
+      <h1>Our Products</h1>
+      <p>Browse our delicious selection of handcrafted cakes and pastries</p>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="All Products">All Products</button>
+        <button class="filter-tab" data-filter="Cake">Cakes</button>
+        <button class="filter-tab" data-filter="Pastry">Pastries</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="shop-grid" id="shopGrid"></div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="14" width="20" height="10" rx="2" fill="#e91e8c"/>
+            <rect x="7" y="10" width="14" height="6" rx="1" fill="#f06ab0"/>
+            <rect x="11" y="4" width="6" height="8" rx="1" fill="#e91e8c"/>
+          </svg>
+          Sweet Delights
+        </div>
+        <p>Crafting delicious cakes and pastries with love since 2010.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+        </ul>
+      </div>
+      <div class="footer-hours">
+        <h4>Opening Hours</h4>
+        <p>Monday - Friday: 7AM - 8PM</p>
+        <p>Saturday: 8AM - 9PM</p>
+        <p>Sunday: 8AM - 7PM</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>📍 123 Baker Street, NY 10001</p>
+        <p>📞 (555) 123-4567</p>
+        <p>✉️ info@sweetdelights.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 Sweet Delights. All rights reserved.</p></div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script>
+    let activeFilter = 'All Products';
+
+    function renderShop(filter) {
+      const grid = document.getElementById('shopGrid');
+      const filtered = filter === 'All Products' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="${p.image}" alt="${p.name}" class="product-image" loading="lazy">
+            ${p.featured ? '<span class="badge">Featured</span>' : ''}
+          </div>
+          <div class="product-info">
+            <span class="product-category">${p.category}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.description}</p>
+            <div class="product-footer">
+              <span class="product-price">$${p.price.toFixed(2)}</span>
+              <button class="btn-add" onclick="addToCart(${p.id})">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderShop('All Products');
+      document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderShop(tab.dataset.filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

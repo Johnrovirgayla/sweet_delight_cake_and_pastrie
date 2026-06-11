@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations - Sweet Delights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="14" width="20" height="10" rx="2" fill="#e91e8c"/>
+          <rect x="7" y="10" width="14" height="6" rx="1" fill="#f06ab0"/>
+          <rect x="11" y="4" width="6" height="8" rx="1" fill="#e91e8c"/>
+          <circle cx="14" cy="4" r="2" fill="#ff6eb4"/>
+        </svg>
+        Sweet Delights
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="reservations.html" class="active">Reservations</a></li>
+      </ul>
+      <a href="cart.html" class="cart-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="reservation-page">
+    <div class="rsvp-header">
+      <h1>Make a Reservation</h1>
+      <p>Reserve a table at our bakery cafe and enjoy fresh pastries with premium coffee in a cozy atmosphere.</p>
+    </div>
+
+    <div class="rsvp-layout">
+      <div class="rsvp-form-card">
+        <h3>Reservation Details</h3>
+        <p class="subtitle">Fill in your information to reserve a table</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="rsvpName" placeholder="Juan dela Cruz" required>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="rsvpEmail" placeholder="juan@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="rsvpPhone" placeholder="09XX-XXX-XXXX" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date *</label>
+            <input type="date" id="rsvpDate" required>
+          </div>
+          <div class="form-group">
+            <label>Time *</label>
+            <select id="rsvpTime" required>
+              <option value="">Select a time</option>
+              <option>7:00 AM</option><option>8:00 AM</option>
+              <option>9:00 AM</option><option>10:00 AM</option>
+              <option>11:00 AM</option><option>12:00 PM</option>
+              <option>1:00 PM</option><option>2:00 PM</option>
+              <option>3:00 PM</option><option>4:00 PM</option>
+              <option>5:00 PM</option><option>6:00 PM</option>
+              <option>7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Number of Guests *</label>
+          <select id="rsvpGuests" required>
+            <option value="">Select number of guests</option>
+            <option>1 Guest</option><option>2 Guests</option>
+            <option>3 Guests</option><option>4 Guests</option>
+            <option>5 Guests</option>
+            <option>6+ Guests (please call us)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Special Requests (Optional)</label>
+          <textarea id="rsvpNotes" placeholder="Any dietary restrictions, special occasions, or cake customization requests..."></textarea>
+        </div>
+
+        <button class="btn-reserve" id="rsvpBtn" onclick="submitReservation()">Confirm Reservation</button>
+        <p style="text-align:center;font-size:0.8rem;color:var(--gray);margin-top:12px;">
+          📧 A notification will be sent to the bakery and a confirmation to your email.
+        </p>
+      </div>
+
+      <div>
+        <div class="rsvp-info-card">
+          <h4>Visit Us</h4>
+          <p style="font-weight:700;color:var(--black);margin-bottom:4px;">📍 Location</p>
+          <p class="address">123 Baker Street</p>
+          <p>Cagayan de Oro, Misamis Oriental</p>
+          <br>
+          <p style="font-weight:700;color:var(--black);margin-bottom:4px;">📞 Contact</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Email: info@sweetdelights.com</p>
+          <br>
+          <p style="font-weight:700;color:var(--black);margin-bottom:8px;">🕐 Opening Hours</p>
+          <p>Monday – Friday: 7AM – 8PM</p>
+          <p>Saturday: 8AM – 9PM</p>
+          <p>Sunday: 8AM – 7PM</p>
+        </div>
+        <div class="rsvp-info-card">
+          <h4>What to Expect</h4>
+          <ul class="expect-list">
+            <li>Complimentary coffee or tea with your reservation</li>
+            <li>Fresh pastries baked on-site daily</li>
+            <li>Cozy and welcoming atmosphere</li>
+            <li>Free WiFi available</li>
+            <li>Perfect for meetings or casual gatherings</li>
+            <li>Custom cake orders welcome — ask our staff!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="rsvpModal">
+    <div class="modal">
+      <div class="modal-icon">🎂</div>
+      <h2>Reservation Confirmed!</h2>
+      <p id="rsvpConfirmText"></p>
+      <div class="note">📧 The bakery has been notified. We'll confirm your reservation via email or phone within 1 hour.</div>
+      <a href="../index.html" style="display:block;background:var(--black);color:white;padding:14px;border-radius:10px;text-decoration:none;font-weight:700;">Back to Home</a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script>
+    document.getElementById('rsvpDate').min = new Date().toISOString().split('T')[0];
+
+    async function submitReservation() {
+      const name   = document.getElementById('rsvpName').value.trim();
+      const email  = document.getElementById('rsvpEmail').value.trim();
+      const phone  = document.getElementById('rsvpPhone').value.trim();
+      const date   = document.getElementById('rsvpDate').value;
+      const time   = document.getElementById('rsvpTime').value;
+      const guests = document.getElementById('rsvpGuests').value;
+      const notes  = document.getElementById('rsvpNotes').value.trim();
+
+      const fields = [
+        {id:'rsvpName',val:name},{id:'rsvpEmail',val:email},
+        {id:'rsvpPhone',val:phone},{id:'rsvpDate',val:date},
+        {id:'rsvpTime',val:time},{id:'rsvpGuests',val:guests}
+      ];
+      let valid = true;
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!f.val) { el.style.borderColor = '#ef4444'; valid = false; }
+        else el.style.borderColor = '';
+      });
+      if (!valid) { showToast('Please fill in all required fields.'); return; }
+
+      const btn = document.getElementById('rsvpBtn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('../send_reservation.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, date, time, guests, notes })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          const dateObj = new Date(date + 'T00:00:00');
+          const dateStr = dateObj.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+          document.getElementById('rsvpConfirmText').textContent =
+            `Thank you, ${name}! Your table for ${guests} on ${dateStr} at ${time} has been reserved. ${data.message || ''}`;
+          document.getElementById('rsvpModal').classList.add('show');
+        } else {
+          showToast('Error: ' + (data.message || 'Could not send reservation.'));
+          btn.textContent = 'Confirm Reservation';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        // Fallback: Gmail compose
+        const dateObj = new Date(date + 'T00:00:00');
+        const dateStr = dateObj.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+        const subject = encodeURIComponent(`🍰 Reservation Request from ${name} — Sweet Delights`);
+        const body = encodeURIComponent(
+          `NEW RESERVATION REQUEST\n${'='.repeat(40)}\n\n` +
+          `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n` +
+          `Date: ${dateStr}\nTime: ${time}\nGuests: ${guests}\n\n` +
+          `Special Requests: ${notes || 'None'}\n\n` +
+          `--- Sent via Sweet Delights Website`
+        );
+        window.open(`https://mail.google.com/mail/?view=cm&to=YOUR_EMAIL@gmail.com&su=${subject}&body=${body}`, '_blank');
+
+        document.getElementById('rsvpConfirmText').textContent =
+          `Thank you, ${name}! Your reservation for ${guests} on ${dateStr} at ${time} has been submitted.`;
+        document.getElementById('rsvpModal').classList.add('show');
+      }
+    }
+  </script>
+</body>
+</html>

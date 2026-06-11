@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Delights - Handcrafted Cakes & Pastries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="14" width="20" height="10" rx="2" fill="#e91e8c"/>
+          <rect x="7" y="10" width="14" height="6" rx="1" fill="#f06ab0"/>
+          <rect x="11" y="4" width="6" height="8" rx="1" fill="#e91e8c"/>
+          <circle cx="14" cy="4" r="2" fill="#ff6eb4"/>
+          <rect x="6" y="23" width="16" height="2" rx="1" fill="#c0176d"/>
+        </svg>
+        Sweet Delights
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/shop.html">Shop</a></li>
+        <li><a href="pages/reservations.html">Reservations</a></li>
+      </ul>
+      <a href="pages/cart.html" class="cart-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Handcrafted Cakes &<br>Pastries <span class="accent">Made with Love</span></h1>
+      <p>Experience the finest selection of artisan cakes and pastries, baked fresh daily using premium ingredients. Every bite tells a story of passion and craftsmanship.</p>
+      <div class="hero-buttons">
+        <a href="pages/shop.html" class="btn-primary">Shop Now →</a>
+        <a href="pages/reservations.html" class="btn-secondary">Make a Reservation</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-grid">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" alt="Chocolate cake" class="hero-img hero-img-main">
+        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300" alt="Cupcakes" class="hero-img hero-img-sm">
+        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=300" alt="Pastry" class="hero-img hero-img-sm2">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Fresh Daily</h3>
+          <p>All our products are baked fresh every morning using the finest ingredients</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2">
+              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <h3>Award Winning</h3>
+          <p>Recognized for excellence in pastry arts and customer satisfaction</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </div>
+          <h3>Made with Love</h3>
+          <p>Every creation is handcrafted with care, passion, and attention to detail</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Discover our most popular cakes and pastries</p>
+      </div>
+      <div class="products-grid" id="featuredProducts"></div>
+      <div class="section-footer">
+        <a href="pages/shop.html" class="btn-outline">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="container">
+      <h2>About Sweet Delights</h2>
+      <p>Since 2010, we've been serving our community with the finest handcrafted cakes and pastries. Our master bakers combine traditional techniques with innovative flavors to create unforgettable treats for every occasion.</p>
+      <p>Whether you're celebrating a special event or simply treating yourself, we're here to make every moment sweeter. Visit us in-store or order online for delivery.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="14" width="20" height="10" rx="2" fill="#e91e8c"/>
+            <rect x="7" y="10" width="14" height="6" rx="1" fill="#f06ab0"/>
+            <rect x="11" y="4" width="6" height="8" rx="1" fill="#e91e8c"/>
+            <circle cx="14" cy="4" r="2" fill="#ff6eb4"/>
+          </svg>
+          Sweet Delights
+        </div>
+        <p>Crafting delicious cakes and pastries with love since 2010.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+        </ul>
+      </div>
+      <div class="footer-hours">
+        <h4>Opening Hours</h4>
+        <p>Monday - Friday: 7AM - 8PM</p>
+        <p>Saturday: 8AM - 9PM</p>
+        <p>Sunday: 8AM - 7PM</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>📍 123 Baker Street, NY 10001</p>
+        <p>📞 (555) 123-4567</p>
+        <p>✉️ info@sweetdelights.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Sweet Delights. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
